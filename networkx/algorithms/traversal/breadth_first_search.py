@@ -146,8 +146,9 @@ def bfs_edges(G, source, reverse=False, depth_limit=None):
         successors = G.predecessors
     else:
         successors = G.neighbors
-    yield from generic_bfs_edges(G, source, successors, depth_limit)
-
+    #yield from generic_bfs_edges(G, source, successors, depth_limit)
+    for e in generic_bfs_edges(G, source, successors, depth_limit):
+        yield e
 
 def bfs_tree(G, source, reverse=False, depth_limit=None):
     """Returns an oriented tree constructed from of a breadth-first-search
